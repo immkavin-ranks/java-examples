@@ -7,8 +7,8 @@ public class NthFibonacciSeries {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter range: ");
         int n = Integer.parseInt(reader.readLine());
-        int n1 = 0, n2 = 1;
-        for (int i = 0; i < n; ++i) {
+        int n1 = 1, n2 = 0;
+        while (n-- > 0) {
             System.out.print(n2 + " ");
             int temp = n2;
             n2 = n1 + n2;
