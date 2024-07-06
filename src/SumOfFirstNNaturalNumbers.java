@@ -16,6 +16,7 @@ public class SumOfFirstNNaturalNumbers {
         System.gc();
     }
 
+    // get 1 to N array in without looping
     public static int[] get1ToN(int N, int[] firstNNN) {
         if (N == 0) return firstNNN;
         firstNNN[N - 1] = N;
