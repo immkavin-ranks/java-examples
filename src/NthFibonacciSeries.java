@@ -14,7 +14,7 @@ public class NthFibonacciSeries {
             n2 = n1 + n2;
             n1 = temp;
         }
-        // System.out.println(getNthFibonacciNumber(10));
+        System.out.println(getNthFibonacciNumber(10));
     }
 
     private static long getNthFibonacciNumber(int N) {
