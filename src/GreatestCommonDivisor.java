@@ -1,8 +1,13 @@
+import java.util.Scanner;
+
 public class GreatestCommonDivisor {
     public static void main(String[] args) {
-        System.out.println(gcd(1071, 462));
-        System.out.println(gcd1(1071, 462));
-        System.out.println(gcdrc(1071, 462));
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter two numbers: ");
+        int a = s.nextInt(), b = s.nextInt();
+        System.out.println(gcd(a, b));
+        System.out.println(gcd1(a, b));
+        System.out.println(gcdrc(a, b)); // 1071, 462
     }
 
     // Euclidean algorithm - subtraction based version
