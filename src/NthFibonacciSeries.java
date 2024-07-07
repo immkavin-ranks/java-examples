@@ -7,6 +7,7 @@ public class NthFibonacciSeries {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter range: ");
         int n = Integer.parseInt(reader.readLine());
+        System.out.println(getNthFibonacciNumber(n));
         int n1 = 1, n2 = 0;
         while (n-- > 0) {
             System.out.print(n2 + " ");
@@ -14,7 +15,6 @@ public class NthFibonacciSeries {
             n2 = n1 + n2;
             n1 = temp;
         }
-        System.out.println(getNthFibonacciNumber(10));
     }
 
     private static long getNthFibonacciNumber(int N) {

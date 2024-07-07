@@ -13,8 +13,6 @@ public class BubbleSort {
             }
             if (!swapped) break;
         }
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        for (int i : arr) System.out.print(i + " ");
     }
 }
