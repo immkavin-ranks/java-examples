@@ -4,14 +4,6 @@ interface Sport {
         System.out.println("\tSport weightage: " + sport);
     }
 }
-public class MarkSheetPrep {
-    public static void main(String[] args) {
-        Result s = new Result();
-        s.getDetails();
-        s.getMarks();
-        s.writeResult();
-    }
-}
 class Student {
     int rollNo;
     String name;
@@ -70,5 +62,13 @@ class Result extends Test implements Sport {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+}
+public class MarkSheetPrep {
+    public static void main(String[] args) {
+        Result s = new Result();
+        s.getDetails();
+        s.getMarks();
+        s.writeResult();
     }
 }

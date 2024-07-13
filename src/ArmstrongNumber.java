@@ -18,7 +18,7 @@ public class ArmstrongNumber {
     }
 
     private static int getOrderOfNumber(int x) {
-        int order = 0;
+        int order = 0; // Integer.toString(x).length();
         while (x > 0) {
             x /= 10;
             order++;
