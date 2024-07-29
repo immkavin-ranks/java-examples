@@ -17,7 +17,7 @@ public class SquareRoot
             t=sqrt;
             sqrt=(t+(num/t))/2;
         }
-        while((t-sqrt)!= 0);
+        while(t - sqrt != 0);
         return sqrt;
     }
 }
