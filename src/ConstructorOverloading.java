@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ConstructorOverloading {
     public static void main(String[] args) {
-        Box b1 = new Box(); // default constructor
+        Box b1 = new Box(); // constructor with no parameters
         Box b2 = new Box(10.0); // constructor with one parameter
         Box b3 = new Box(10.0, 20.0, 30.0); // constructor with three parameters
         System.out.println("b1.volume() = "+b1.volume());
@@ -12,26 +12,26 @@ public class ConstructorOverloading {
 }
 
 class Box {
-    double length;
-    double breadth;
+    double width;
     double height;
-    Box(double l, double b, double h) {
-        length = l;
-        breadth = b;
+    double depth;
+    Box(double w, double h, double d) {
+        width = w;
         height = h;
+        depth = d;
     }
     Box() {
         System.out.print("Enter the dimensions: ");
         Scanner sc = new Scanner(System.in);
-        length = sc.nextDouble();
-        breadth = sc.nextDouble();
+        width = sc.nextDouble();
         height = sc.nextDouble();
+        depth = sc.nextDouble();
     }
     Box(double len) {
-        length = breadth = height = len;
+        width = height = depth = len;
     }
 
     double volume() {
-        return length * breadth * height;
+        return width * height * depth;
     }
 }
