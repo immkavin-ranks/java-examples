@@ -1,15 +1,34 @@
 // Inter-thread Communication
 class Q {
     int n;
+    boolean valueSet = false;
 
-    synchronized int getN() {
+    synchronized void getN() {
+        while (!valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
         System.out.println("Got: " + n);
-        return n;
+        valueSet = false;
+        notify();
     }
 
     synchronized void setN(int n) {
+        while (valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
         this.n = n;
+        valueSet = true;
         System.out.println("Put: " + n);
+        notify();
     }
 }
 
@@ -25,7 +44,11 @@ class Producer implements Runnable {
         int i = 0;
 
         while (true) {
-            q.setN(i++);
+            try {
+                q.setN(i++);
+            } catch (Exception e) {
+                break;
+            }
         }
     }
 }
@@ -40,7 +63,13 @@ class Consumer implements Runnable {
 
     @Override
     public void run() {
-        while (true) q.getN();
+        while (true) {
+            try {
+                q.getN();
+            } catch (Exception e) {
+                break;
+            }
+        }
     }
 }
 
