@@ -12,6 +12,9 @@ public class Exercise {
         System.out.println(Arrays.toString(removeDuplicates(new int[] {1, 1, 2, 2, 3, 4, 5, 2, 2})));
         System.out.println(removeDuplicatesInSortedArray(new int[] {1, 1, 2, 2, 3, 4, 5}));
         System.out.println(maxProfit(new int[] {2, 4, 1}));
+        System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
+        System.out.println(searchInArray(new int[] {1,2,3,4,5,6}, 6));
+        System.out.println(maxProduct(new int[] {2, 3, -2, 4}));
     }
 
     public static int[] middle(int[] array) {
@@ -26,11 +29,6 @@ public class Exercise {
             middleArray[index - 1] = array[index];
             index++;
         }
-/*
-        for (int i = 0; i < middleArray.length; i++) {
-            middleArray[i] = array[i+1];
-        }
-*/
 
 //        System.arraycopy(array, 1, middleArray, 0, middleArray.length);
         return middleArray;
@@ -118,4 +116,52 @@ public class Exercise {
 
         return maxProfit;
     }
+
+    public static int[] twoSum(int[] numbers, int target) {
+        int i = 0, j = 1;
+        while (true) {
+            if (numbers[i] + numbers[j] != target) {
+                if (j == numbers.length - 1) {
+                    i++;
+                    j = i + 1;
+                } else {
+                    j++;
+                }
+            } else {
+                break;
+            }
+        }
+        return new int[] {i, j};
+    }
+
+    public static int searchInArray(int[] intArray, int valueToSearch) {
+        for (int i = 0; i < intArray.length; i++) {
+            if (intArray[i] == valueToSearch) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * @param intArray an integer array
+     * @return The two largest numbers in the array
+     */
+    public static String maxProduct(int[] intArray) {
+        int firstMaximum = Integer.MIN_VALUE;
+        int secondMaximum = Integer.MIN_VALUE;
+
+        for (int i : intArray) {
+            if (i > firstMaximum) {
+                secondMaximum = firstMaximum;
+                firstMaximum = i;
+            } else if (i > secondMaximum) {
+                secondMaximum = i;
+            }
+        }
+        return firstMaximum + "," + secondMaximum;
+    }
+
+
+
 }
