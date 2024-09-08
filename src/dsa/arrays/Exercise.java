@@ -15,6 +15,9 @@ public class Exercise {
         System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
         System.out.println(searchInArray(new int[] {1,2,3,4,5,6}, 6));
         System.out.println(maxProduct(new int[] {2, 3, -2, 4}));
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        rotate(matrix);
+        System.out.println(Arrays.deepToString(matrix));
     }
 
     public static int[] middle(int[] array) {
@@ -162,6 +165,30 @@ public class Exercise {
         return firstMaximum + "," + secondMaximum;
     }
 
+// leetcode 48
+// O(n^2) time
+    public static void rotate(int[][] matrix) {
+        int n = matrix.length;
 
+        // Step 1: Transpose the matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                swap(matrix, i, j, j, i);
+            }
+        }
+
+        // Step 2: Reverse each row
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
+                swap(matrix, i, j, i, n - 1 - j);
+            }
+        }
+    }
+
+    public static void swap(int[][] matrix, int i1, int j1, int i2, int j2) {
+        int temp = matrix[i1][j1];
+        matrix[i1][j1] = matrix[i2][j2];
+        matrix[i2][j2] = temp;
+    }
 
 }
