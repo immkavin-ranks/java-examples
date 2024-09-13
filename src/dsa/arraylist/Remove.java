@@ -9,6 +9,7 @@ public class Remove {
 
         System.out.println("numbers = " + numbers);
         numbers.remove(3); // index
+
         System.out.println("numbers = " + numbers);
         numbers.remove(Integer.valueOf(3)); // Object
         System.out.println("numbers = " + numbers);

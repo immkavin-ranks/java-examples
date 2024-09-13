@@ -18,6 +18,7 @@ public class Exercise {
         int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         rotate(matrix);
         System.out.println(Arrays.deepToString(matrix));
+        sumAndProduct(arr);
     }
 
     public static int[] middle(int[] array) {
@@ -189,6 +190,18 @@ public class Exercise {
         int temp = matrix[i1][j1];
         matrix[i1][j1] = matrix[i2][j2];
         matrix[i2][j2] = temp;
+    }
+
+    public static void sumAndProduct(int [] arr) {
+
+        int sum = 0;
+        int product = 1;
+        for (int j : arr) {
+            sum += j;
+            product *= j;
+        }
+        System.out.println("Sum = " + sum);
+        System.out.println("Product = " + product);
     }
 
 }
