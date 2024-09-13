@@ -19,6 +19,7 @@ public class Exercise {
         rotate(matrix);
         System.out.println(Arrays.deepToString(matrix));
         sumAndProduct(arr);
+        printPairs(arr);
     }
 
     public static int[] middle(int[] array) {
@@ -204,4 +205,12 @@ public class Exercise {
         System.out.println("Product = " + product);
     }
 
+    public static void printPairs(int[] arr) {
+        for (int i: arr) {
+            for (int j: arr) {
+                System.out.print(i + "" + j + "\t");
+            }
+            System.out.println();
+        }
+    }
 }
