@@ -20,6 +20,9 @@ public class Exercise {
         System.out.println(Arrays.deepToString(matrix));
         sumAndProduct(arr);
         printPairs(arr);
+        printUnorderedPairs(arr);
+        reverse(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static int[] middle(int[] array) {
@@ -211,6 +214,25 @@ public class Exercise {
                 System.out.print(i + "" + j + "\t");
             }
             System.out.println();
+        }
+    }
+
+    public static void printUnorderedPairs(int [] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                System.out.print(arr[i] + "" + arr[j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    // O(n)
+    public static void reverse(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - 1 - i];
+            arr[n - 1 - i] = temp;
         }
     }
 }
