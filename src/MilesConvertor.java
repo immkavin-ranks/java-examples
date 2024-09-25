@@ -3,38 +3,38 @@ import java.awt.event.*;
 
 public class MilesConvertor extends Frame {
     TextField input = new TextField(10);
-    Label output = new Label();
+    Label output = new Label("");
 
     public MilesConvertor() {
         super("Miles Convertor");
         setSize(300, 200);
-        setLayout(null);
-        setVisible(true);
         setResizable(false);
         setLocationRelativeTo(null);
+        setLayout(new BorderLayout(10, 10));
 
-        Label prompt = new Label("Enter distance in kilometers: ");
+        Panel inputPanel = new Panel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        Label prompt = new Label("Enter distance in kilometers:");
+        inputPanel.add(prompt);
+        inputPanel.add(input);
 
+        Panel buttonPanel = new Panel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         Button convert_button = new Button("Convert");
         convert_button.addActionListener(e -> convert());
         Button quit_button = new Button("Quit");
         quit_button.addActionListener(e -> System.exit(0));
+        buttonPanel.add(convert_button);
+        buttonPanel.add(quit_button);
 
-        prompt.setBounds(20, 50, 180, 20);
-        input.setBounds(200, 50, 60, 20);
-        output.setBounds(20, 80, 260, 20);
         output.setAlignment(Label.CENTER);
-        convert_button.setBounds(85, 120, 60, 20);
-        quit_button.setBounds(155, 120, 60, 20);
 
-        add(prompt);
-        add(input);
-        add(output);
-        add(convert_button);
-        add(quit_button);
+        add(inputPanel, BorderLayout.NORTH);
+        add(output, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {dispose();}
         });
+        setVisible(true);
     }
 
     public void convert() {
