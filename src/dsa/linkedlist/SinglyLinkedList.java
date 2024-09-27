@@ -101,4 +101,42 @@ public class SinglyLinkedList {
         head = tail = null;
         size = 0;
     }
+
+    public void push(int nodeValue) {
+        Node node = new Node();
+        node.value = nodeValue;
+
+        if (head == null) {
+            head = node;
+        } else {
+            tail.next = node;
+        }
+        tail = node;
+        size++;
+    }
+
+    public Node pop() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+        Node lastNode;
+        if (head == tail) {
+            lastNode = head;
+            head = tail = null;
+        } else {
+            Node tempNode = head;
+            while (tempNode.next != tail) {
+                tempNode = tempNode.next;
+            }
+
+            lastNode = tempNode.next;
+            tempNode.next = null;
+            tail = tempNode;
+        }
+
+        size--;
+        return lastNode;
+    }
+
 }

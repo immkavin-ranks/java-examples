@@ -20,5 +20,14 @@ public class SinglyLinkedListDemo {
 
         sLL.delete();
         System.out.println(sLL.size);
+
+        sLL.push(10);
+        sLL.push(100);
+        System.out.println(sLL.pop().value);
+        sLL.search(10);
+        sLL.traverse();
+        System.out.println(sLL.pop().value);
+
+
     }
 }
